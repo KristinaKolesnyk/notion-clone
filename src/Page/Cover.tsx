@@ -1,3 +1,4 @@
+// @ts-ignore
 import {useRef, ChangeEventHandler} from "react";
 import styles from "./Cover.module.css";
 
