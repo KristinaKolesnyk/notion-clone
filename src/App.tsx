@@ -1,8 +1,7 @@
 import './App.css'
-import {Page} from "./Page/Page.tsx";
+import {Page} from "./Page/Page";
 import {createPage} from "./utils/createPage";
 import {AppStateProvider} from "./state/AppStateContext";
-
 
 const initialState = createPage();
 

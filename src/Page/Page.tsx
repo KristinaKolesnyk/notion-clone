@@ -7,12 +7,10 @@ import {nanoid} from "nanoid";
 import {useAppState} from "../state/AppStateContext";
 
 export const Page = () => {
-
     const {title, nodes, addNode, setTitle} = useAppState();
     const [focusedNodeIndex, setFocusedNodeIndex] = useFocusedNodeIndex({
         nodes,
     });
-
 
     return (
         <>

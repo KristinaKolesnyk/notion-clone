@@ -43,7 +43,7 @@ export const CommandPanel = ({selectItem, nodeText}: CommandPanelProps) => {
     useEffect(() => {
         const normalizedValue = nodeText.toLowerCase().replace(/\//, "");
         setSelectedItemIndex(
-            supportedNodeTypes.findIndex((item) => item.value.match(normalizedValue))
+            supportedNodeTypes.findIndex(item => item.value.match(normalizedValue))
         );
     }, [nodeText]);
 
@@ -65,9 +65,7 @@ export const CommandPanel = ({selectItem, nodeText}: CommandPanelProps) => {
                                 [styles.selected]: selected,
                             })}
                             onClick={() => selectItem(type.value)}
-                        >
-                            {type.name}
-                        </li>
+                        >{type.name}</li>
                     );
                 })}
             </ul>

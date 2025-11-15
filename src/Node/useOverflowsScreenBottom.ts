@@ -4,17 +4,13 @@ export const useOverflowsScreenBottom = () => {
     const ref = useRef<HTMLDivElement>(null);
     const [overflows, setOverflows] = useState(false);
 
-    const calculateOverflows = () => {
+    useEffect(() => {
         if (ref.current) {
             const {bottom} = ref.current.getBoundingClientRect();
             const {innerHeight} = window;
             setOverflows(bottom > innerHeight);
         }
-    }
-
-    useEffect(() => {
-        calculateOverflows();
-    })
+    }, []);
 
     return {overflows, ref};
 }
