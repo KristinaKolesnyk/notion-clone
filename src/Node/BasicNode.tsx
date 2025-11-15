@@ -1,8 +1,10 @@
 import type {NodeData} from "../utils/types.ts";
 import styles from "./Node.module.css"
-import {useRef, useEffect, FormEventHandler, KeyboardEventHandler} from "react";
+import type {FormEventHandler, KeyboardEventHandler} from "react";
+import {useRef, useEffect} from "react";
 import {nanoid} from "nanoid";
 import {useAppState} from "../state/AppStateContext";
+import cx from "classnames";
 
 
 type BasicNodeProps = {
@@ -10,9 +12,6 @@ type BasicNodeProps = {
     updateFocusedIndex(index: number): void;
     isFocused: boolean;
     index: number;
-    addNode(node: NodeData, index: number): void;
-    removeNodeById(index: number): void;
-    changeNodeValue(index: number, value: string): void;
 }
 
 export const BasicNode = ({
@@ -37,7 +36,7 @@ export const BasicNode = ({
         if (nodeRef.current && !isFocused) {
             nodeRef.current.textContent = node.value;
         }
-    }, [node]);
+    }, [node, isFocused]);
 
     const handleInput: FormEventHandler<HTMLDivElement> = ({currentTarget: currentTarget}) => {
         const {textContent} = currentTarget;
@@ -61,11 +60,11 @@ export const BasicNode = ({
         if (event.key === "Backspace") {
             if (target.textContent?.length === 0) {
                 event.preventDefault();
-                removeNodeById(index);
+                removeNodeByIndex(index);
                 updateFocusedIndex(index - 1);
             } else if (window?.getSelection()?.anchorOffset === 0) {
                 event.preventDefault();
-                removeNodeById(index - 1);
+                removeNodeByIndex(index - 1);
                 updateFocusedIndex(index - 1);
             }
         }
@@ -79,7 +78,7 @@ export const BasicNode = ({
             ref={nodeRef}
             contentEditable
             suppressContentEditableWarning
-            className={styles.node}
+            className={cx(styles.node, styles[node.type])}
         />
 
     )

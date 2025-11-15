@@ -1,6 +1,6 @@
 import {createContext, useContext, type ReactNode} from "react";
 import {usePageState} from "./usePageState";
-import {Page} from "../utils/types";
+import type {Page} from "../utils/types";
 
 type AppStateContextType = ReturnType<typeof usePageState>;
 
@@ -20,5 +20,5 @@ export const AppStateProvider = ({children, initialState}: AppStateProviderProps
     )
 }
 
-export const useAppState = () => useContext(AppStateContext)
+export const useAppState = () => useContext(AppStateContext);
 

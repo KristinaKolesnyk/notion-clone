@@ -1,5 +1,4 @@
 import {nanoid} from "nanoid";
-import {Page} from "./types";
 
 export const createPage = () => {
     const slug = nanoid();

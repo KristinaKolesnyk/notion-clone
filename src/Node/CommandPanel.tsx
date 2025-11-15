@@ -41,11 +41,11 @@ export const CommandPanel = ({selectItem, nodeText}: CommandPanelProps) => {
     }, [selectedItemIndex, selectItem])
 
     useEffect(() => {
-        const normalizedValue = nodeText.toLowerCase().replace(/\//, "")
+        const normalizedValue = nodeText.toLowerCase().replace(/\//, "");
         setSelectedItemIndex(
-            supportedNodeTypes.findIndex(item => item.value.match(normalizedValue))
-        )
-    }, [nodeText])
+            supportedNodeTypes.findIndex((item) => item.value.match(normalizedValue))
+        );
+    }, [nodeText]);
 
     return (
         <div ref={ref}
@@ -53,23 +53,24 @@ export const CommandPanel = ({selectItem, nodeText}: CommandPanelProps) => {
                  cx(styles.panel, {
                      [styles.reverse]: overflows,
                  })
-             }
-        >
+             }>
             <div className={styles.title}>Blocks</div>
             <ul>
                 {supportedNodeTypes.map((type, index) => {
-                    const selected = setSelectedItemIndex === index;
-                    return <li>
-                        key = {type.value}
-                        className={cx({
-                        [styles.selected]: selected,
-                    })}
-                        onClick ={() => selectItem(type.value)}
-                        {type.name}
-                    </li>
+                    const selected = selectedItemIndex === index;
+                    return (
+                        <li
+                            key={type.value}
+                            className={cx({
+                                [styles.selected]: selected,
+                            })}
+                            onClick={() => selectItem(type.value)}
+                        >
+                            {type.name}
+                        </li>
+                    );
                 })}
             </ul>
-
         </div>
     )
 }
