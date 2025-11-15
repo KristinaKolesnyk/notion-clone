@@ -78,6 +78,7 @@ export const BasicNode = ({
             ref={nodeRef}
             contentEditable
             suppressContentEditableWarning
+            className={styles.node}
         />
 
     )
