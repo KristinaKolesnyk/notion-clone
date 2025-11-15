@@ -4,6 +4,7 @@ import {createPage} from "./utils/createPage";
 import {AppStateProvider} from "./state/AppStateContext";
 import {Route, Routes} from 'react-router-dom'
 import {Auth} from "./auth/Auth.tsx";
+import {Private} from "./auth/Private.tsx";
 
 const initialState = createPage();
 
@@ -12,14 +13,19 @@ function App() {
         <Routes>
             <Route path="/auth" element={<Auth/>}/>
             <Route path="/:id" element={
-                <AppStateProvider initialState={initialState}>
-                    <Page/>
-                </AppStateProvider>
+                <Private component={
+                    <AppStateProvider initialState={initialState}>
+                        <Page/>
+                    </AppStateProvider>
+                }
+                />
             }/>
             <Route path="/" element={
-                <AppStateProvider initialState={initialState}>
-                    <Page/>
-                </AppStateProvider>}/>
+                <Private component={
+                    <AppStateProvider initialState={initialState}>
+                        <Page/>
+                    </AppStateProvider>}/>
+            }/>
 
         </Routes>
     )
