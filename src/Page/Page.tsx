@@ -1,26 +1,26 @@
-import { useFocusedNodeIndex } from "./useFocusedNodeIndex";
-import { Cover } from "./Cover";
-import { Spacer } from "./Spacer";
-import { NodeContainer } from "../Node/NodeContainer";
-import { Title } from "./Title";
-import { nanoid } from "nanoid";
-import { useAppState } from "../state/AppStateContext";
-import { DndContext, DragOverlay } from "@dnd-kit/core";
-import type { DragEndEvent } from "@dnd-kit/core";
+import {useFocusedNodeIndex} from "./useFocusedNodeIndex";
+import {Cover} from "./Cover";
+import {Spacer} from "./Spacer";
+import {NodeContainer} from "../Node/NodeContainer";
+import {Title} from "./Title";
+import {nanoid} from "nanoid";
+import {useAppState} from "../state/AppStateContext";
+import {DndContext, DragOverlay} from "@dnd-kit/core";
+import type {DragEndEvent} from "@dnd-kit/core";
 import {
     SortableContext,
     verticalListSortingStrategy,
 } from "@dnd-kit/sortable";
 
 export const Page = () => {
-    const { title, nodes, addNode, reorderNodes, setTitle } = useAppState();
+    const {title, nodes, addNode, cover, setCoverImage, reorderNodes, setTitle} = useAppState();
 
     const [focusedNodeIndex, setFocusedNodeIndex] = useFocusedNodeIndex({
         nodes,
     });
 
     const handleDragEvent = (event: DragEndEvent) => {
-        const { active, over } = event;
+        const {active, over} = event;
         if (over?.id && active.id !== over?.id) {
             reorderNodes(active.id as string, over.id as string);
         }
@@ -28,7 +28,7 @@ export const Page = () => {
 
     return (
         <>
-            <Cover/>
+            <Cover filePath={cover} changePageCover={setCoverImage}/>
             <div>
                 <Title addNode={addNode} title={title} changePageTitle={setTitle}/>
                 <DndContext onDragEnd={handleDragEvent}>
@@ -43,12 +43,12 @@ export const Page = () => {
                             />
                         ))}
                     </SortableContext>
-                    <DragOverlay />
+                    <DragOverlay/>
                 </DndContext>
                 <Spacer
-                    handleClick={() =>
-                        addNode({type: "text", value: "", id: nanoid()}, nodes.length)
-                    }
+                    handleClick={() => {
+                        addNode({type: "text", value: "", id: nanoid()}, nodes.length);
+                    }}
                     showHint={!nodes.length}
                 />
             </div>
