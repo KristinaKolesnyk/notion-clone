@@ -7,7 +7,7 @@ type TitleProps = {
     title: string;
     changePageTitle(title: string): void;
     addNode(node: NodeData, index: number): void;
-}
+};
 
 export const Title = ({title, changePageTitle, addNode}: TitleProps) => {
     const headerRef = useRef<HTMLHeadingElement>(null);
@@ -21,8 +21,10 @@ export const Title = ({title, changePageTitle, addNode}: TitleProps) => {
 
     return (
         <div className={styles.container}>
-            <h1 className={styles.title}
+            <h1
+                className={styles.title}
                 contentEditable
+                ref={headerRef}
                 suppressContentEditableWarning
                 onInput={(e) => changePageTitle(e.currentTarget.textContent || "")}
                 onKeyDown={(event) => {
@@ -33,5 +35,5 @@ export const Title = ({title, changePageTitle, addNode}: TitleProps) => {
                 }}
             />
         </div>
-    )
-}
+    );
+};

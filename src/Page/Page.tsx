@@ -7,10 +7,7 @@ import {nanoid} from "nanoid";
 import {useAppState} from "../state/AppStateContext";
 import {DndContext, DragOverlay} from "@dnd-kit/core";
 import type {DragEndEvent} from "@dnd-kit/core";
-import {
-    SortableContext,
-    verticalListSortingStrategy,
-} from "@dnd-kit/sortable";
+import {SortableContext, verticalListSortingStrategy} from "@dnd-kit/sortable";
 
 export const Page = () => {
     const {title, nodes, addNode, cover, setCoverImage, reorderNodes, setTitle} = useAppState();

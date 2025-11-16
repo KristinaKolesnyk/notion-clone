@@ -1,8 +1,8 @@
-import type { Page, NodeData, NodeType } from "../utils/types";
-import { arrayMove } from "@dnd-kit/sortable"
-import { useSyncedState } from "./useSyncedState"
-import { updatePage } from "../utils/updatePage"
-import { createPage } from "../utils/createPage"
+import type {Page, NodeData, NodeType} from "../utils/types";
+import {arrayMove} from "@dnd-kit/sortable"
+import {useSyncedState} from "./useSyncedState"
+import {updatePage} from "../utils/updatePage"
+import {createPage} from "../utils/createPage"
 
 export const usePageState = (initialState: Page) => {
     const [page, setPage] = useSyncedState(initialState, updatePage);
