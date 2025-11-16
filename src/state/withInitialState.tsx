@@ -1,10 +1,10 @@
 import type {Page} from "../utils/types";
-import { useMatch } from "react-router-dom";
-import { useState, useEffect, useRef } from "react";
-import { supabase } from "../supabaseClient";
+import {useMatch} from "react-router-dom";
+import {useState, useEffect, useRef} from "react";
+import {supabase} from "../supabaseClient";
 import startPageScaffold from "./startPageScaffold.json";
 import styles from "../utils.module.css";
-import { Loader } from "../components/Loader";
+import {Loader} from "../components/Loader.tsx";
 
 type InjectedProps = {
     initialState: Page;
@@ -34,15 +34,15 @@ export function withInitialState<TProps>(
             inProgress.current = true
             const fetchInitialState = async () => {
                 try {
-                    const { data: userData } = await supabase.auth.getUser();
+                    const {data: userData} = await supabase.auth.getUser();
                     const user = userData.user;
                     if (!user) {
                         throw new Error("User is not logged in");
                     }
-                    const { data } = await supabase
+                    const {data} = await supabase
                         .from("pages")
                         .select("title, id, cover, nodes, slug")
-                        .match({ slug: pageSlug, created_by: user.id })
+                        .match({slug: pageSlug, created_by: user.id})
 
                     if (data?.[0]) {
                         setInitialState(data?.[0]);
@@ -60,10 +60,10 @@ export function withInitialState<TProps>(
                                 created_by: user.id,
                             })
 
-                        const { data } = await supabase
+                        const {data} = await supabase
                             .from("pages")
                             .select("title, id, cover, nodes, slug")
-                            .match({ slug: "start", created_by: user.id })
+                            .match({slug: "start", created_by: user.id})
 
                         setInitialState(data?.[0]);
                     } else {
@@ -83,7 +83,7 @@ export function withInitialState<TProps>(
         if (isLoading) {
             return (
                 <div className={styles.centeredFlex}>
-                    <Loader />
+                    <Loader/>
                 </div>
             );
         }
@@ -96,6 +96,6 @@ export function withInitialState<TProps>(
             return <div className={styles.centeredFlex}>Page not found</div>;
         }
 
-        return <WrappedComponent {...props} initialState={initialState} />;
+        return <WrappedComponent {...props} initialState={initialState}/>;
     };
 }
