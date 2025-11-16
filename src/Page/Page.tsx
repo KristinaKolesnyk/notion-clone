@@ -8,6 +8,7 @@ import {useAppState} from "../state/AppStateContext";
 import {DndContext, DragOverlay} from "@dnd-kit/core";
 import type {DragEndEvent} from "@dnd-kit/core";
 import {SortableContext, verticalListSortingStrategy} from "@dnd-kit/sortable";
+import styles from "./Page.module.css";
 
 export const Page = () => {
     const {title, nodes, addNode, cover, setCoverImage, reorderNodes, setTitle} = useAppState();
@@ -26,7 +27,7 @@ export const Page = () => {
     return (
         <>
             <Cover filePath={cover} changePageCover={setCoverImage}/>
-            <div>
+            <div className={styles.body}>
                 <Title addNode={addNode} title={title} changePageTitle={setTitle}/>
                 <DndContext onDragEnd={handleDragEvent}>
                     <SortableContext items={nodes} strategy={verticalListSortingStrategy}>

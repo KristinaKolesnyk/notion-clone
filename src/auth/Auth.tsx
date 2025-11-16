@@ -2,7 +2,7 @@ import {useState} from "react"
 import type {FormEvent} from "react"
 import {useAuthSession} from "./AuthSessionContext"
 import {Navigate} from "react-router-dom"
-import styles from "../utils/utils.module.css"
+import styles from "../utils.module.css"
 import {supabase} from "../supabaseClient"
 
 export const Auth = () => {

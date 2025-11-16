@@ -1,4 +1,4 @@
-import type {Page} from "../utils/types";
+import type {Page} from "./types.ts";
 import { supabase } from "../supabaseClient";
 import { debounce } from "./debounce";
 

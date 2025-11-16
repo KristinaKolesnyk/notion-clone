@@ -1,7 +1,7 @@
 import {useEffect, useState} from "react"
 import {supabase} from "../supabaseClient"
 import {Loader} from "./Loader"
-import styles from "../utils/utils.module.css"
+import styles from "../utils.module.css"
 
 type FileImageProps = {filePath: string} & React.ImgHTMLAttributes<HTMLImageElement>
 

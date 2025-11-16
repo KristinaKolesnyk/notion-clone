@@ -1,9 +1,8 @@
-import './App.css'
 import {Page} from "./Page/Page";
 import {AppStateProvider} from "./state/AppStateContext";
 import {Route, Routes} from 'react-router-dom'
-import {Auth} from "./auth/Auth.tsx";
-import {Private} from "./auth/Private.tsx";
+import {Auth} from "./auth/Auth";
+import {Private} from "./auth/Private";
 
 function App() {
     return (

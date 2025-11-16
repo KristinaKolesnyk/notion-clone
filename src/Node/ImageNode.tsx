@@ -46,8 +46,9 @@ export const ImageNode = ({node, isFocused, index}: ImageNodeProps) => {
 
     const onImageUpload = async (event: ChangeEvent<HTMLInputElement>) => {
         const target = event.target;
-        if (!target.files) {
+        if (!target.files || target.files.length === 0) {
             changeNodeType(index, "text");
+            return;
         }
         try {
             const result = await uploadImage(target.files?.[0]);
