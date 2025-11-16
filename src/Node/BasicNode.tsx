@@ -5,49 +5,48 @@ import {useRef, useEffect} from "react";
 import {nanoid} from "nanoid";
 import {useAppState} from "../state/AppStateContext";
 import cx from "classnames";
-import {CommandPanel} from "./CommandPanel";
+import {CommandPanel} from "./CommandPanel.tsx";
 
 type BasicNodeProps = {
     node: NodeData;
     updateFocusedIndex(index: number): void;
     isFocused: boolean;
     index: number;
-}
+};
 
-export const BasicNode = ({node, updateFocusedIndex, isFocused, index}: BasicNodeProps) => {
+export const BasicNode = ({node, updateFocusedIndex, isFocused, index,}: BasicNodeProps) => {
     const nodeRef = useRef<HTMLDivElement>(null);
-    const showCommandPanel = isFocused && node?.value?.match(/^\//)
-    const {changeNodeValue, changeNodeType, removeNodeByIndex, addNode} = useAppState();
+    const showCommandPanel = isFocused && node?.value?.match(/^\//);
 
-    const parseCommand = (nodeType: NodeType) => {
-        if (nodeRef.current) {
-            changeNodeType(index, nodeType);
-            nodeRef.current.textContent = ""
-        }
-    }
+    const {changeNodeValue, changeNodeType, removeNodeByIndex, addNode} =
+        useAppState();
 
     useEffect(() => {
+        if (nodeRef.current && document.activeElement !== nodeRef.current) {
+            nodeRef.current.textContent = node.value;
+        }
         if (isFocused) {
             nodeRef.current?.focus();
         } else {
             nodeRef.current?.blur();
         }
-    }, [isFocused]);
-
-    useEffect(() => {
-        if (nodeRef.current && !isFocused) {
-            nodeRef.current.textContent = node.value;
-        }
     }, [node, isFocused]);
 
-    const handleInput: FormEventHandler<HTMLDivElement> = ({currentTarget: currentTarget}) => {
+    const parseCommand = (nodeType: NodeType) => {
+        if (nodeRef.current) {
+            changeNodeType(index, nodeType);
+            nodeRef.current.textContent = "";
+        }
+    };
+
+    const handleInput: FormEventHandler<HTMLDivElement> = ({currentTarget}) => {
         const {textContent} = currentTarget;
         changeNodeValue(index, textContent || "");
     };
 
     const handleClick = () => {
         updateFocusedIndex(index);
-    }
+    };
 
     const onKeyDown: KeyboardEventHandler<HTMLDivElement> = (event) => {
         const target = event.target as HTMLDivElement;
@@ -57,7 +56,7 @@ export const BasicNode = ({node, updateFocusedIndex, isFocused, index}: BasicNod
                 return;
             }
             addNode({type: node.type, value: "", id: nanoid()}, index + 1);
-            updateFocusedIndex(index + 1)
+            updateFocusedIndex(index + 1);
         }
         if (event.key === "Backspace") {
             if (target.textContent?.length === 0) {
@@ -70,15 +69,13 @@ export const BasicNode = ({node, updateFocusedIndex, isFocused, index}: BasicNod
                 updateFocusedIndex(index - 1);
             }
         }
-    }
+    };
 
     return (
         <>
-            {
-                showCommandPanel && (
-                    <CommandPanel selectItem={parseCommand} nodeText={node.value}/>
-                )
-            }
+            {showCommandPanel && (
+                <CommandPanel selectItem={parseCommand} nodeText={node.value}/>
+            )}
             <div
                 onInput={handleInput}
                 onClick={handleClick}
@@ -89,5 +86,5 @@ export const BasicNode = ({node, updateFocusedIndex, isFocused, index}: BasicNod
                 className={cx(styles.node, styles[node.type])}
             />
         </>
-    )
-}
+    );
+};
