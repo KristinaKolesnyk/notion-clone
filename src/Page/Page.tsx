@@ -37,7 +37,10 @@ export const Page = () => {
 
     return (
         <div className={styles.notePage}>
-            <button onClick={handleLogout}>Log out</button>
+            <button className={styles.logoutButton} onClick={handleLogout}>
+                Log out
+            </button>
+
 
             {!isRoot && (
                 <div className={styles.backLink} onClick={() => navigate("/")}>

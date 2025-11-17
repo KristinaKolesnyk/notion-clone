@@ -1,0 +1,126 @@
+.wrapper {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f6f0df;
+}
+
+.card {
+    background-color: #fffdf7;
+    border-radius: 24px;
+    padding: 40px 48px;
+    max-width: 420px;
+    width: 100%;
+
+    border: 1px solid rgba(210, 200, 180, 0.8);
+    box-shadow:
+            0 10px 20px rgba(0, 0, 0, 0.08),
+            0 20px 40px rgba(0, 0, 0, 0.05);
+
+    transform: rotate(-0.4deg);
+}
+
+.logo {
+    font-size: 32px;
+    margin: 0 0 4px;
+}
+
+.tagline {
+    font-size: 14px;
+    margin: 0 0 24px;
+}
+
+.labelRow {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 14px;
+    margin-bottom: 16px;
+}
+
+.label {
+    font-size: 14px;
+}
+
+.inputRow {
+    display: flex;
+    gap: 8px;
+}
+
+.input {
+    flex: 1;
+    padding: 8px 12px;
+    border-radius: 999px;
+    border: 1px solid rgba(180, 170, 150, 0.9);
+    background-color: #fffdf7;
+    font-family: inherit;
+    font-size: 14px;
+
+    outline: none;
+    transition: box-shadow 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.logoRow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 4px;
+}
+
+.logoIcon {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    border: 1px solid rgba(40, 40, 40, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    background-color: #fffdf7;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+.footer {
+    margin-top: 24px;
+    font-size: 11px;
+    text-align: center;
+    color: #777;
+    opacity: 0.9;
+}
+
+.input:focus {
+    border-color: #111;
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+}
+
+.button {
+    padding: 8px 16px;
+    border-radius: 999px;
+    border: 1px solid rgba(40, 40, 40, 0.9);
+    background: #111;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.18);
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+}
+
+.button:hover {
+    background-color: #222;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.22);
+}
+
+.button:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.helper {
+    font-size: 12px;
+    margin-top: 10px;
+    color: #555;
+}
