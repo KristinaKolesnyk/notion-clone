@@ -33,19 +33,21 @@
 
 .heading1 {
     font-size: 40px;
-    font-weight: bold;
+    font-weight: 700;
+    letter-spacing: 0.03em;
 }
 
 .heading2 {
     font-size: 30px;
-    font-weight: bold;
+    font-weight: 700;
+    letter-spacing: 0.02em;
 }
 
 .heading3 {
-    font-size: 20px;
-    font-weight: bold;
+    font-size: 22px;
+    font-weight: 700;
 }
 
 .focused {
-    background-color: #00bcd4;
+    background-color: rgba(230, 194, 163, 0.3);
 }

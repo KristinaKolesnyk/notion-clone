@@ -13,7 +13,7 @@ import styles from "./Page.module.css";
 
 export const Page = () => {
     const navigate = useNavigate();
-    const { slug } = useParams<{ slug?: string }>(); // slug есть только у внутренних страниц
+    const {slug} = useParams<{ slug?: string }>(); // slug есть только у внутренних страниц
     const isRootPage = !slug;
 
     const {title, nodes, addNode, cover, setCoverImage, reorderNodes, setTitle} = useAppState();

@@ -1,10 +1,11 @@
 .cover {
     position: relative;
     height: 295px;
-    border-bottom: 2px solid #eaeaea;
     display: flex;
     justify-content: center;
     align-items: center;
+    border-radius: 26px;
+    overflow: hidden;
 }
 
 .button {

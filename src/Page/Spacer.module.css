@@ -2,5 +2,7 @@
     height: 200px;
     width: 100%;
     padding: 0 46px;
-    color: grey;
+    color: #999;
+    font-size: 0.9rem;
+    cursor: text;
 }
