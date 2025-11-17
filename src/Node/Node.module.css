@@ -16,20 +16,20 @@
 
 .list {
     position: relative;
-    padding-left: 20px;
 }
 
 .list::after {
     content: "";
     position: absolute;
     bottom: 50%;
-    left: 6px;
+    left: 20px;           /* вместо 6px, чтобы кружок был слева от текста */
     width: 6px;
     height: 6px;
     background-color: #222;
     border-radius: 50%;
     transform: translateY(50%);
 }
+
 
 .heading1 {
     font-size: 40px;

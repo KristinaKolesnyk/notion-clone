@@ -1,7 +1,7 @@
 .container {
+    padding-left: 66px;
+    padding-right: 46px;
     max-width: 900px;
-    margin: 24px auto 8px;
-    padding: 0 16px;
 }
 
 .title {
