@@ -32,7 +32,7 @@ export const Auth = () => {
     return (
         <div className={styles.centeredFlex}>
             <div>
-                <h1>Kristina Notes App</h1>
+                <h1>IdeaNest</h1>
                 <p>Sign in via magic link with your email below</p>
                 {loading ? ("Sending magic link...") : (
                     <form onSubmit={handleLogin}>

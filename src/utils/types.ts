@@ -7,7 +7,7 @@ export type NodeData = {
 }
 
 export type Page = {
-    id: string;
+    id: number;
     slug: string;
     title: string;
     nodes: NodeData[];

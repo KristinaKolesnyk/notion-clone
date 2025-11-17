@@ -45,7 +45,7 @@ export const PageNode = ({node, isFocused, index}: PageNodeProps) => {
                 .select("title")
                 .eq("slug", node.value)
                 .single();
-            setPageTitle(data?.title);
+            setPageTitle(data?.title ?? "Untitled");
         };
         if (node.type === "page" && node.value) {
             fetchPageTitle();
@@ -63,7 +63,7 @@ export const PageNode = ({node, isFocused, index}: PageNodeProps) => {
                 [styles.focused]: isFocused,
             })}
         >
-            📄 {pageTitle}
+            📄 {pageTitle || "Untitled"}
         </div>
     );
 };

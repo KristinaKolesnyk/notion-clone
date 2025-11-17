@@ -10,6 +10,7 @@ import {DndContext, DragOverlay} from "@dnd-kit/core";
 import type {DragEndEvent} from "@dnd-kit/core";
 import {SortableContext, verticalListSortingStrategy} from "@dnd-kit/sortable";
 import styles from "./Page.module.css";
+import {supabase} from "../supabaseClient.ts";
 
 export const Page = () => {
     const navigate = useNavigate();
@@ -29,8 +30,15 @@ export const Page = () => {
         }
     };
 
+    const handleLogout = async () => {
+        await supabase.auth.signOut();
+        window.location.reload();
+    };
+
     return (
         <div className={styles.notePage}>
+            <button onClick={handleLogout}>Log out</button>
+
             {!isRoot && (
                 <div className={styles.backLink} onClick={() => navigate("/")}>
                     ← Back to main page
