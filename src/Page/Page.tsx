@@ -1,5 +1,5 @@
 import {useFocusedNodeIndex} from "./useFocusedNodeIndex";
-import {useNavigate, useParams} from "react-router-dom";
+import {useMatch, useNavigate} from "react-router-dom";
 import {Cover} from "./Cover";
 import {Spacer} from "./Spacer";
 import {NodeContainer} from "../Node/NodeContainer";
@@ -13,8 +13,8 @@ import styles from "./Page.module.css";
 
 export const Page = () => {
     const navigate = useNavigate();
-    const {slug} = useParams<{ slug?: string }>(); // slug есть только у внутренних страниц
-    const isRootPage = !slug;
+    const matchId = useMatch("/:id");
+    const isRoot = !matchId;
 
     const {title, nodes, addNode, cover, setCoverImage, reorderNodes, setTitle} = useAppState();
 
@@ -31,7 +31,7 @@ export const Page = () => {
 
     return (
         <div className={styles.notePage}>
-            {!isRootPage && (
+            {!isRoot && (
                 <div className={styles.backLink} onClick={() => navigate("/")}>
                     ← Back to main page
                 </div>

@@ -14,10 +14,12 @@ export const createPage = async () => {
         title: "Untitled",
         slug,
         nodes: [],
+        cover: "",
         created_by: user.id,
     };
 
     await supabase.from("pages").insert(page);
+
     const {data: pageData} = await supabase
         .from("pages")
         .select("id")
