@@ -1,4 +1,5 @@
 import {useFocusedNodeIndex} from "./useFocusedNodeIndex";
+import {useNavigate, useParams} from "react-router-dom";
 import {Cover} from "./Cover";
 import {Spacer} from "./Spacer";
 import {NodeContainer} from "../Node/NodeContainer";
@@ -11,6 +12,10 @@ import {SortableContext, verticalListSortingStrategy} from "@dnd-kit/sortable";
 import styles from "./Page.module.css";
 
 export const Page = () => {
+    const navigate = useNavigate();
+    const { slug } = useParams<{ slug?: string }>(); // slug есть только у внутренних страниц
+    const isRootPage = !slug;
+
     const {title, nodes, addNode, cover, setCoverImage, reorderNodes, setTitle} = useAppState();
 
     const [focusedNodeIndex, setFocusedNodeIndex] = useFocusedNodeIndex({
@@ -25,7 +30,12 @@ export const Page = () => {
     };
 
     return (
-        <>
+        <div className={styles.notePage}>
+            {!isRootPage && (
+                <div className={styles.backLink} onClick={() => navigate("/")}>
+                    ← Back to main page
+                </div>
+            )}
             <Cover filePath={cover} changePageCover={setCoverImage}/>
             <div className={styles.body}>
                 <Title addNode={addNode} title={title} changePageTitle={setTitle}/>
@@ -50,6 +60,6 @@ export const Page = () => {
                     showHint={!nodes.length}
                 />
             </div>
-        </>
+        </div>
     );
 };
