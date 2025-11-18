@@ -1,73 +1,55 @@
-# React + TypeScript + Vite
+# IdeaNest
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**IdeaNest** is a minimalistic note-taking platform inspired by Notion, designed for fast idea capture, structured knowledge organization, and distraction-free writing.
+It blends a handwritten aesthetic with a clean, modern interface to create a cozy, personal writing environment.
 
-Currently, two official plugins are available:
+The application is built using **React + TypeScript** on the frontend and **Supabase** as the backend, providing authentication, storage, and real-time database updates.
+Users can create pages, add content blocks, upload cover images, and organize their thoughts intuitively.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## React Compiler
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+##  Uniqueness
 
-## Expanding the ESLint configuration
+IdeaNest distinguishes itself through its **paper-like interface with a warm, analog feel**, while still offering the flexibility of a digital editor.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Unlike typical note apps that feel corporate or sterile, IdeaNest’s goal is to:
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- Make writing feel natural, inviting, and cozy
+- Reduce friction for capturing spontaneous thoughts
+- Provide a structure similar to Notion but with an artful, calming design
+- Encourage creative flow rather than rigid documentation
+ 
+It merges **digital productivity** with **handwritten personality**, creating a workspace that feels personal and enjoyable.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+##  Features
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Content & Blocks
+- Text blocks  
+- Headings (H1–H3)  
+- Unordered lists  
+- Image blocks  
+- Links to other pages  
+- Drag & drop block reordering  
+- Auto-save on every change  
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+### Page System
+- Infinite nested pages  
+- Custom cover image for each page  
+- Clean back-navigation navigation  
+- Per-user data isolation (no shared pages)
+
+### Authentication
+- Magic-link sign-in (Supabase Auth)  
+- Secure session handling  
+- Auto-redirect after login  
+
+### UI / UX Highlights
+- Paper-like dotted background  
+- Handwritten-inspired typography  
+- Soft shadows, rounded shapes  
+- Modern floating logout button  
+- Cozy and minimal writing environment  
+
+
