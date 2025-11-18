@@ -57,9 +57,6 @@ It merges **digital productivity** with **handwritten personality**, creating a 
 - Modern floating logout button  
 - Cozy and minimal writing environment
 
-##  Screenshots
+##  Screenshot 
 
-### Main UI Preview    
-```md
-![screenshot](screenshots/main.png)
-
+<img width="609" height="616" alt="main" src="https://github.com/user-attachments/assets/a501db79-390f-4bc8-bbe1-814e40374d01" />
