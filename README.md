@@ -61,5 +61,5 @@ It merges **digital productivity** with **handwritten personality**, creating a 
 
 ### Main UI Preview    
 ```md
-![IdeaNest Main Screenshot](./screenshots/main.png)
+![IdeaNest Main Screenshot](screenshots/main.png)
 
