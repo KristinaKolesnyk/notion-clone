@@ -1,8 +1,10 @@
 .node {
-    border-radius: 4px;
-    padding: 6px 6px 6px 46px;
+    border-radius: 6px;
+    padding: 4px 4px 4px 10px;
     cursor: text;
     width: 100%;
+
+    outline: none;
 }
 
 .page {
@@ -11,18 +13,19 @@
 }
 
 .page:hover {
-    background-color: #f0f0f0;
+    text-decoration: underline;
 }
 
 .list {
     position: relative;
+    padding-left: 18px;
 }
 
 .list::after {
     content: "";
     position: absolute;
     bottom: 50%;
-    left: 20px;           /* вместо 6px, чтобы кружок был слева от текста */
+    left: 2px;
     width: 6px;
     height: 6px;
     background-color: #222;
@@ -30,24 +33,25 @@
     transform: translateY(50%);
 }
 
-
 .heading1 {
-    font-size: 40px;
-    font-weight: 700;
-    letter-spacing: 0.03em;
+    font-size: 32px;
+    font-weight: 600;
+    margin: 16px 0 8px;
 }
 
 .heading2 {
-    font-size: 30px;
-    font-weight: 700;
-    letter-spacing: 0.02em;
+    font-size: 24px;
+    font-weight: 600;
+    margin: 16px 0 6px;
 }
 
 .heading3 {
-    font-size: 22px;
-    font-weight: 700;
+    font-size: 18px;
+    font-weight: 600;
+    margin: 12px 0 4px;
 }
 
 .focused {
-    background-color: rgba(230, 194, 163, 0.3);
+    background-color: #fff7d6;
+    box-shadow: 0 0 0 2px #ffb347;
 }

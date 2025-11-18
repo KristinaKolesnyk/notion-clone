@@ -41,35 +41,37 @@ export const Page = () => {
                 Log out
             </button>
 
-
             {!isRoot && (
                 <div className={styles.backLink} onClick={() => navigate("/")}>
                     ← Back to main page
                 </div>
             )}
-            <Cover filePath={cover} changePageCover={setCoverImage}/>
-            <div className={styles.body}>
-                <Title addNode={addNode} title={title} changePageTitle={setTitle}/>
-                <DndContext onDragEnd={handleDragEvent}>
-                    <SortableContext items={nodes} strategy={verticalListSortingStrategy}>
-                        {nodes.map((node, index) => (
-                            <NodeContainer
-                                key={node.id}
-                                node={node}
-                                isFocused={focusedNodeIndex === index}
-                                updateFocusedIndex={setFocusedNodeIndex}
-                                index={index}
-                            />
-                        ))}
-                    </SortableContext>
-                    <DragOverlay/>
-                </DndContext>
-                <Spacer
-                    handleClick={() => {
-                        addNode({type: "text", value: "", id: nanoid()}, nodes.length);
-                    }}
-                    showHint={!nodes.length}
-                />
+            <div className={styles.page}>
+                <Cover filePath={cover} changePageCover={setCoverImage}/>
+
+                <div className={styles.body}>
+                    <Title addNode={addNode} title={title} changePageTitle={setTitle}/>
+                    <DndContext onDragEnd={handleDragEvent}>
+                        <SortableContext items={nodes} strategy={verticalListSortingStrategy}>
+                            {nodes.map((node, index) => (
+                                <NodeContainer
+                                    key={node.id}
+                                    node={node}
+                                    isFocused={focusedNodeIndex === index}
+                                    updateFocusedIndex={setFocusedNodeIndex}
+                                    index={index}
+                                />
+                            ))}
+                        </SortableContext>
+                        <DragOverlay/>
+                    </DndContext>
+                    <Spacer
+                        handleClick={() => {
+                            addNode({type: "text", value: "", id: nanoid()}, nodes.length);
+                        }}
+                        showHint={!nodes.length}
+                    />
+                </div>
             </div>
         </div>
     );
