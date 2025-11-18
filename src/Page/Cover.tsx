@@ -3,6 +3,8 @@ import type {ChangeEventHandler} from "react";
 import styles from "./Cover.module.css";
 import {FileImage} from "../components/FileImage";
 import {uploadImage} from "../utils/uploadImage"
+import defaultCover from "../assets/cover.png";
+
 
 type CoverProps = {
     filePath?: string;
@@ -30,7 +32,7 @@ export const Cover = ({filePath, changePageCover}: CoverProps) => {
             {filePath ? (
                 <FileImage className={styles.image} filePath={filePath}/>
             ) : (
-                <img src="/src/assets/cover.png" alt="Cover" className={styles.image}/>
+                <img src={defaultCover} alt="Cover" className={styles.image}/>
             )}
             <button className={styles.button} onClick={onChangeCoverImage}>
                 Change cover
