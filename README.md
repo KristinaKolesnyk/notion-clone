@@ -1,5 +1,10 @@
 # IdeaNest
 
+### ✨ Live Demo  
+👉 **Try the app here:** [https://ideanest.netlify.app](https://jocular-zuccutto-517495.netlify.app)
+
+---
+
 **IdeaNest** is a minimalistic note-taking platform inspired by Notion, designed for fast idea capture, structured knowledge organization, and distraction-free writing.
 It blends a handwritten aesthetic with a clean, modern interface to create a cozy, personal writing environment.
 
@@ -50,6 +55,11 @@ It merges **digital productivity** with **handwritten personality**, creating a 
 - Handwritten-inspired typography  
 - Soft shadows, rounded shapes  
 - Modern floating logout button  
-- Cozy and minimal writing environment  
+- Cozy and minimal writing environment
 
+##  Screenshots
+
+### Main UI Preview    
+```md
+![IdeaNest Main Screenshot](./screenshots/main.png)
 
